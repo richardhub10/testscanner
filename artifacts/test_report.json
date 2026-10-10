@@ -15,19 +15,25 @@
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 3.0
+    "support": 4.0
   },
   "be": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 3.0
+    "support": 4.0
   },
   "bi": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 4.0
+    "support": 3.0
+  },
+  "bi_i": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3.0
   },
   "bo": {
     "precision": 1.0,
@@ -39,7 +45,13 @@
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 4.0
+    "support": 3.0
+  },
+  "bu_u": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3.0
   },
   "da": {
     "precision": 1.0,
@@ -63,7 +75,13 @@
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 4.0
+    "support": 3.0
+  },
+  "di_i": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3.0
   },
   "do": {
     "precision": 1.0,
@@ -75,7 +93,13 @@
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 4.0
+    "support": 3.0
+  },
+  "du_u": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3.0
   },
   "e": {
     "precision": 1.0,
@@ -99,13 +123,19 @@
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 3.0
+    "support": 4.0
   },
   "gi": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 4.0
+    "support": 3.0
+  },
+  "gi_i": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3.0
   },
   "go": {
     "precision": 1.0,
@@ -117,7 +147,13 @@
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 4.0
+    "support": 3.0
+  },
+  "gu_u": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3.0
   },
   "i": {
     "precision": 1.0,
@@ -141,7 +177,7 @@
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 3.0
+    "support": 4.0
   },
   "ki": {
     "precision": 1.0,
@@ -149,17 +185,29 @@
     "f1-score": 1.0,
     "support": 4.0
   },
-  "ko": {
+  "ki_i": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
     "support": 3.0
   },
-  "ku": {
+  "ko": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
     "support": 4.0
+  },
+  "ku": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3.0
+  },
+  "ku_u": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3.0
   },
   "la": {
     "precision": 1.0,
@@ -183,7 +231,13 @@
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 4.0
+    "support": 3.0
+  },
+  "li_i": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3.0
   },
   "lo": {
     "precision": 1.0,
@@ -195,7 +249,13 @@
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 4.0
+    "support": 3.0
+  },
+  "lu_u": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3.0
   },
   "ma": {
     "precision": 1.0,
@@ -219,7 +279,13 @@
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 4.0
+    "support": 3.0
+  },
+  "mi_i": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3.0
   },
   "mo": {
     "precision": 1.0,
@@ -231,7 +297,13 @@
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 4.0
+    "support": 3.0
+  },
+  "mu_u": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3.0
   },
   "na": {
     "precision": 1.0,
@@ -243,7 +315,7 @@
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 4.0
+    "support": 3.0
   },
   "ne": {
     "precision": 1.0,
@@ -258,40 +330,58 @@
     "support": 3.0
   },
   "ngang": {
-    "precision": 0.75,
+    "precision": 1.0,
     "recall": 1.0,
-    "f1-score": 0.8571428571428571,
+    "f1-score": 1.0,
     "support": 3.0
   },
   "nge": {
     "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
+    "recall": 0.6666666666666666,
+    "f1-score": 0.8,
     "support": 3.0
   },
   "ngi": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 4.0
+    "support": 3.0
+  },
+  "ngi_i": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3.0
   },
   "ngo": {
-    "precision": 1.0,
-    "recall": 0.6666666666666666,
-    "f1-score": 0.8,
+    "precision": 0.75,
+    "recall": 1.0,
+    "f1-score": 0.8571428571428571,
     "support": 3.0
   },
   "ngu": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 4.0
+    "support": 3.0
+  },
+  "ngu_u": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3.0
   },
   "ni": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 4.0
+    "support": 3.0
+  },
+  "ni_i": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3.0
   },
   "no": {
     "precision": 1.0,
@@ -303,7 +393,13 @@
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 4.0
+    "support": 3.0
+  },
+  "nu_u": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3.0
   },
   "o": {
     "precision": 1.0,
@@ -335,6 +431,12 @@
     "f1-score": 1.0,
     "support": 4.0
   },
+  "pi_i": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3.0
+  },
   "po": {
     "precision": 1.0,
     "recall": 1.0,
@@ -345,7 +447,13 @@
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 4.0
+    "support": 3.0
+  },
+  "pu_u": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3.0
   },
   "sa": {
     "precision": 1.0,
@@ -369,19 +477,31 @@
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 4.0
+    "support": 3.0
   },
-  "so": {
+  "si_i": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
     "support": 3.0
   },
-  "su": {
+  "so": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
     "support": 4.0
+  },
+  "su": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3.0
+  },
+  "su_u": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3.0
   },
   "ta": {
     "precision": 1.0,
@@ -407,6 +527,12 @@
     "f1-score": 1.0,
     "support": 4.0
   },
+  "ti_i": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3.0
+  },
   "to": {
     "precision": 1.0,
     "recall": 1.0,
@@ -417,7 +543,13 @@
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 4.0
+    "support": 3.0
+  },
+  "tu_u": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3.0
   },
   "u": {
     "precision": 1.0,
@@ -425,17 +557,17 @@
     "f1-score": 1.0,
     "support": 3.0
   },
-  "accuracy": 0.9957805907172996,
+  "accuracy": 0.9965397923875432,
   "macro avg": {
-    "precision": 0.9964788732394366,
-    "recall": 0.9953051643192489,
-    "f1-score": 0.9951710261569416,
-    "support": 237.0
+    "precision": 0.9973118279569892,
+    "recall": 0.9964157706093191,
+    "f1-score": 0.9963133640552996,
+    "support": 289.0
   },
   "weighted avg": {
-    "precision": 0.9968354430379747,
-    "recall": 0.9957805907172996,
-    "f1-score": 0.9956600361663653,
-    "support": 237.0
+    "precision": 0.9974048442906575,
+    "recall": 0.9965397923875432,
+    "f1-score": 0.9964409293129017,
+    "support": 289.0
   }
 }
