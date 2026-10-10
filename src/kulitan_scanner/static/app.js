@@ -24,12 +24,12 @@ function setLoading(isLoading) {
 }
 
 function renderResult(result) {
-  predictionText.textContent = (result.prediction || '-').toUpperCase();
+  predictionText.textContent = (result.prediction || '-').toLowerCase();
   const confPct = ((result.confidence ?? 0) * 100).toFixed(1);
   confidenceText.textContent = `${confPct}%`;
   reasonText.textContent = result.reason || '';
 
-  const topk = (result.top_k || []).map((item, i) => `${i + 1}. ${item.label.toUpperCase()} (${(item.confidence * 100).toFixed(1)}%)`);
+  const topk = (result.top_k || []).map((item, i) => `${i + 1}. ${item.label.toLowerCase()} (${(item.confidence * 100).toFixed(1)}%)`);
   topkText.textContent = topk.length ? `Candidates:\n${topk.join('\n')}` : '';
 
   if (result.extracted_image_url) {

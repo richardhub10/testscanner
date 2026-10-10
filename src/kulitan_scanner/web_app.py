@@ -129,11 +129,11 @@ class KulitanPredictor:
         results = []
         for prob, idx in zip(top_probs[0].tolist(), top_indices[0].tolist()):
             raw_lbl = self.idx_to_label[idx]
-            display_lbl = raw_lbl.replace("_", "/")
+            display_lbl = raw_lbl.replace("_", "/").lower()
             results.append({"label": display_lbl, "confidence": float(prob)})
 
         out = {
-            "prediction": results[0]["label"],
+            "prediction": results[0]["label"].lower(),
             "confidence": results[0]["confidence"],
             "top_k": results,
             "extracted_image_url": preview_url,
