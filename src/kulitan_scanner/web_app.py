@@ -60,36 +60,66 @@ class KulitanPredictor:
         self.unknown_label = unknown_label
         self.allow_no_symbol = allow_no_symbol
 
+    def _enhance_and_extract_glyph(self, pil_img: Image.Image):
+        import cv2
+        import numpy as np
+        import base64
+        import io
+
+        cv_img = cv2.cvtColor(np.array(pil_img.convert("RGB")), cv2.COLOR_RGB2BGR)
+        gray = cv2.cvtColor(cv_img, cv2.COLOR_BGR2GRAY)
+
+        # Background illumination normalization to remove paper shadows/yellow tint
+        dilated = cv2.dilate(gray, np.ones((7, 7), np.uint8))
+        bg = cv2.medianBlur(dilated, 21)
+        diff = 255 - cv2.absdiff(gray, bg)
+        norm = cv2.normalize(diff, None, alpha=0, beta=255, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_8UC1)
+
+        # Otsu thresholding for crisp dark ink extraction
+        _, thresh = cv2.threshold(norm, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
+
+        coords = np.column_stack(np.where(thresh > 0))
+        if len(coords) < 15:
+            return pil_img, None
+
+        y_min, x_min = coords.min(axis=0)
+        y_max, x_max = coords.max(axis=0)
+        margin = 6
+        h, w = thresh.shape
+        y_min = max(0, y_min - margin)
+        x_min = max(0, x_min - margin)
+        y_max = min(h - 1, y_max + margin)
+        x_max = min(w - 1, x_max + margin)
+
+        glyph = thresh[y_min:y_max + 1, x_min:x_max + 1]
+        gh, gw = glyph.shape
+        target_size = 224
+        glyph_target = int(target_size * 0.75)
+        scale = glyph_target / max(gh, gw, 1)
+        nw, nh = max(1, int(gw * scale)), max(1, int(gh * scale))
+        resized = cv2.resize(glyph, (nw, nh), interpolation=cv2.INTER_AREA)
+
+        # Place onto white 224x224 canvas
+        canvas = np.zeros((target_size, target_size), dtype=np.uint8)
+        sy = (target_size - nh) // 2
+        sx = (target_size - nw) // 2
+        canvas[sy:sy + nh, sx:sx + nw] = resized
+        clean_gray = 255 - canvas
+        clean_rgb = cv2.cvtColor(clean_gray, cv2.COLOR_GRAY2RGB)
+        clean_pil = Image.fromarray(clean_rgb)
+
+        # Base64 preview
+        buffer = io.BytesIO()
+        clean_pil.save(buffer, format="PNG")
+        b64 = "data:image/png;base64," + base64.b64encode(buffer.getvalue()).decode("ascii")
+
+        return clean_pil, b64
+
     def predict_pil(self, image: Image.Image) -> Dict[str, object]:
         image = image.convert("RGB")
+        clean_image, preview_url = self._enhance_and_extract_glyph(image)
 
-        symbol_info = {
-            "symbol_found": True,
-            "symbol_area_ratio": 1.0,
-            "components": 1,
-        }
-        if self.isolate_symbol:
-            extraction = extract_symbol_region(
-                image,
-                min_symbol_area_ratio=self.min_symbol_area_ratio,
-            )
-            image = extraction.image
-            symbol_info = {
-                "symbol_found": extraction.symbol_found,
-                "symbol_area_ratio": extraction.symbol_area_ratio,
-                "components": extraction.components,
-            }
-
-        if not symbol_info["symbol_found"] and not self.allow_no_symbol:
-            return {
-                "prediction": self.unknown_label,
-                "confidence": 0.0,
-                "top_k": [],
-                "reason": "No clear Kulitan symbol detected",
-                "symbol_info": symbol_info,
-            }
-
-        tensor = self.tfm(image).unsqueeze(0).to(self.device)
+        tensor = self.tfm(clean_image).unsqueeze(0).to(self.device)
 
         with torch.no_grad():
             logits = self.model(tensor)
@@ -104,14 +134,9 @@ class KulitanPredictor:
             "prediction": results[0]["label"],
             "confidence": results[0]["confidence"],
             "top_k": results,
-            "symbol_info": symbol_info,
+            "extracted_image_url": preview_url,
+            "symbol_info": {"symbol_found": True, "confidence": results[0]["confidence"]},
         }
-        if out["confidence"] < self.min_confidence:
-            out["prediction"] = self.unknown_label
-            out["reason"] = (
-                f"Low confidence ({out['confidence']:.3f}) below threshold ({self.min_confidence:.3f})"
-            )
-
         return out
 
 
